@@ -1,7 +1,7 @@
 ---
 title: Homelab Overview
 page_width: full
-auto_refresh: 1000
+auto_refresh: 90000
 ---
 
 # Homelab Overview
