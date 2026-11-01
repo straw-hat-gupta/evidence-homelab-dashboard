@@ -26,12 +26,9 @@ select
   expected,
   case
     when not scrape_success then 'Down'
+    when extract(epoch from now() - collected_at) > 3600 then 'Stale'
     when quality_status = 'warming_up'
-      and freshness_status = 'warming_up'
-      and extract(epoch from now() - collected_at) <= 60 then 'Warming up'
-    when freshness_status <> 'ok'
-      or quality_status <> 'ok'
-      or extract(epoch from now() - collected_at) > 60 then 'Stale'
+      and freshness_status = 'warming_up' then 'Warming up'
     when cpu_pct >= 90
       or memory_used_bytes::float / nullif(memory_total_bytes, 0) >= 0.9 then 'Critical'
     when cpu_pct >= 80

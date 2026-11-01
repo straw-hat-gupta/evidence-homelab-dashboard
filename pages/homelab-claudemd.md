@@ -13,13 +13,13 @@ temperature/storage/network ~15 s, services ~30 s, collector cycles and history 
 
 ```sql issues
 select 'critical' as severity, 'Node' as area, display_name || ': ' || case when not scrape_success then 'scrape failed' else 'data stale (' || round(collection_age_seconds)::text || ' s)' end as detail
-from telemetry.latest_nodes where expected and (not scrape_success or collection_age_seconds > 10)
+from telemetry.latest_nodes where expected and (not scrape_success or collection_age_seconds > 3600)
 union all
 select 'critical', 'Service', node_id || ' / ' || display_name || ': ' || coalesce(failure_reason, case when not running then 'not running' else 'check failed' end)
 from telemetry.latest_services where expected and (not running or not check_success)
 union all
 select 'critical', 'Pipeline', 'collector diagnostic ' || round(diagnostic_age_seconds)::text || ' s old'
-from telemetry.pipeline_status where diagnostic_age_seconds > 180
+from telemetry.pipeline_status where diagnostic_age_seconds > 3600
 union all
 select 'critical', 'Pipeline', 'collector state ' || source_state || coalesce(': ' || error_summary, '')
 from telemetry.pipeline_status where source_state <> 'ok' or queue_overflow
