@@ -1,0 +1,8 @@
+# Evidence Project Configuration
+# Docs: https://docs.evidence.studio/features/project-settings
+
+project:
+  name: "homelab-analytics"
+  evidence: "0.4.4"
+
+pages: ./pages
