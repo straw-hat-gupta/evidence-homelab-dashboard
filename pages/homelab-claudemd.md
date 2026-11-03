@@ -1,7 +1,7 @@
 ---
 title: Home Lab (Claude)
 page_width: full
-auto_refresh: 90000
+auto_refresh: 60000
 ---
 
 <!--

@@ -1,7 +1,7 @@
 ---
 title: Homelab Dashboard
 page_width: full
-auto_refresh: 90000
+auto_refresh: 60000
 ---
 
 # Homelab Dashboard
