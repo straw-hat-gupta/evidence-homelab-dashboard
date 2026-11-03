@@ -1,5 +1,5 @@
 ---
-title: Home Lab (Claude) something else
+title: Home Lab (Claude)
 page_width: full
 auto_refresh: 90000
 ---
