@@ -1,10 +1,10 @@
 ---
-title: Homelab Overview
+title: Homelab Dashboard
 page_width: full
 auto_refresh: 90000
 ---
 
-# Homelab Overview
+# Homelab Dashboard
 
 Live health of the homelab nodes, queried from Neon and refreshed every second.
 
