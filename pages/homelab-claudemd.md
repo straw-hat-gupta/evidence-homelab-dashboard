@@ -1,5 +1,5 @@
 ---
-title: Home Lab (Claude)
+title: Home Lab (Claude) change on github
 page_width: full
 auto_refresh: 90000
 ---
